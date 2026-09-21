@@ -1,0 +1,197 @@
+balance = 30
+
+movies = {'Action': {'Die Hard': 12, 'Terminator': 11}, 'Comedy': {'The Simpsons': 9, 'Family Guy': 10}, 'Horror': {'Get Out': 12, 'The Shining': 13}, 'Drama': {'Breaking Bad': 14, 'The Wire': 11}}
+
+import datetime
+
+today = datetime.date.today()
+
+if today.weekday() == 1:
+
+    for genre in movies:
+
+        for movie in movies[genre]:
+
+            movies[genre][movie] = round(movies[genre][movie] * 0.5, 2)
+
+    print('TUESDAY DISCOUNT!')
+
+age = (int(input('Welcome To PythonCinema! First Off, How Old Are You? We Have Discounts For Seniors And Children!').strip()))
+
+if age < 14:
+
+    print('Awesome! Kids Discount Applied!')
+
+    for genre in movies:
+
+        for movie in movies[genre]:
+
+            movies[genre][movie] = round(movies[genre][movie] * 0.4, 2)
+
+elif age >= 65:
+
+    print('Awesome! Senior Discount Applied!')
+
+    for genre in movies:
+
+        for movie in movies[genre]:
+
+            movies[genre][movie] = round(movies[genre][movie] * 0.3, 2)
+
+else:
+
+    print('No Age Discount Applied.')
+
+while True:
+
+    for genre in movies:
+
+        print(f"\n{genre.upper()}:")
+
+        for movie in movies[genre]:
+
+            print(f"   {movie}: ${movies[genre][movie]}")
+
+    choice = input('What Movie Would You Like To Watch Today?').strip()
+
+    if choice == 'Die Hard':
+        price = movies['Action']['Die Hard']
+        if balance >= price:
+
+            print("Here's Your Ticket To Die Hard!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'Terminator':
+        price = movies['Action']['Terminator']
+        if balance >= price:
+
+            print("Here's Your Ticket To Terminator!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'The Simpsons' or choice == 'Simpsons':
+        price = movies['Comedy']['The Simpsons']
+        if balance >= price:
+
+            print("Here's Your Ticket To The Simpsons!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'Family Guy':
+        price = movies['Comedy']['Family Guy']
+        if balance >= price:
+
+            print("Here's Your Ticket To Family Guy!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'Get Out':
+        price = movies['Horror']['Get Out']
+        if balance >= price:
+
+            print("Here's Your Ticket To Get Out!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'The Shining' or choice == 'Shining':
+        price = movies['Horror']['The Shining']
+        if balance >= price:
+
+            print("Here's Your Ticket To The Shining!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'Breaking Bad':
+        price = movies['Drama']['Breaking Bad']
+        if balance >= price:
+
+            print("Here's Your Ticket To Breaking Bad!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'The Wire' or choice == 'Wire':
+        price = movies['Drama']['The Wire']
+        if balance >= price:
+
+            print("Here's Your Ticket To The Wire!")
+
+            balance = balance - price
+
+            break
+
+        else:
+
+            print('Insufficient Funds!')
+
+    elif choice == 'Quit':
+        print('Goodbye!')
+
+        break 
+
+Output:
+
+Welcome To PythonCinema! First Off, How Old Are You? We Have Discounts For Seniors And Children! 11
+Awesome! Kids Discount Applied!
+
+ACTION:
+   Die Hard: $4.8
+   Terminator: $4.4
+
+COMEDY:
+   The Simpsons: $3.6
+   Family Guy: $4.0
+
+HORROR:
+   Get Out: $4.8
+   The Shining: $5.2
+
+DRAMA:
+   Breaking Bad: $5.6
+   The Wire: $4.4
+What Movie Would You Like To Watch Today? Family Guy
+Here's Your Ticket To Family Guy!
+>>> balance
+26.0
